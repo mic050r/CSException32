@@ -48,10 +48,20 @@ namespace CSException32
         }
         static void Main(string[] args)
         {
-            Box box = new Box(100, 100);
-            box.Width = 200;
-            box.Height = 200;
-            Console.WriteLine(box.Area);
+            try
+            {
+                Box box = new Box(100, 100);
+                box.Width = 200;
+                box.Height = 200;
+                Console.WriteLine(box.Area);
+                Box wrongBox = new Box(10, 10);
+                wrongBox.Width = -10;
+                //wrongBox.Height = -10;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
